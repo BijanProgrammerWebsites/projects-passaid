@@ -16,7 +16,7 @@ jobs:
                   key: ${{secrets.SSH_KEY}}
                   port: 22
                   script: |
-                      cd /repos/passage
+                      cd /repos/projects-passage
                       git fetch
                       git checkout master
                       git reset --hard HEAD
@@ -24,4 +24,4 @@ jobs:
                       npm i
                       ng build --base-href=/passage/
                       rm -rf /var/projects/bijanprogrammer.com/html/passage
-                      cp -a dist/passage/. /var/projects/bijanprogrammer.com/html/passage
+                      cp -a dist/projects-passage/. /var/projects/bijanprogrammer.com/html/passage
