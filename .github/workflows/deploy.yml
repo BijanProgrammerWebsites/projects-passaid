@@ -1,0 +1,27 @@
+name: Deployment Workflow
+on:
+    push:
+        branches: [master]
+
+jobs:
+    deploy_job:
+        name: Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Establish a Connection to Server and Update Website
+              uses: appleboy/ssh-action@master
+              with:
+                  host: 130.185.76.173
+                  username: root
+                  key: ${{secrets.SSH_KEY}}
+                  port: 22
+                  script: |
+                      cd /repos/passage
+                      git fetch
+                      git checkout master
+                      git reset --hard HEAD
+                      git pull origin master
+                      npm i
+                      ng build --base-href=/passage/
+                      rm -rf /var/projects/bijanprogrammer.com/html/passage
+                      cp -a dist/passage/. /var/projects/bijanprogrammer.com/html/passage
