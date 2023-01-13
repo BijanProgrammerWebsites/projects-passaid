@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Clipboard} from '@angular/cdk/clipboard';
 
 interface Strength {
     value: number;
@@ -36,6 +37,9 @@ export class HomeComponent implements OnInit {
     };
 
     public isGenerateButtonDisabled: boolean = false;
+    public showCopiedNotice: boolean = false;
+
+    public constructor(private clipboard: Clipboard) {}
 
     public ngOnInit(): void {
         this.updateStrength();
@@ -46,7 +50,14 @@ export class HomeComponent implements OnInit {
         this.updateStrength();
     }
 
-    public copyButtonClickHandler(): void {}
+    public copyButtonClickHandler(): void {
+        if (this.showCopiedNotice) return;
+
+        this.clipboard.copy(this.password);
+
+        this.showCopiedNotice = true;
+        setTimeout(() => (this.showCopiedNotice = false), 1000);
+    }
 
     public generateButtonClickHandler(): void {
         this.password = this.generatePassword();

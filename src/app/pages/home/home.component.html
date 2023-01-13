@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="box box--password">
-        <div class="password">{{ password }}</div>
+        <div class="password">{{ showCopiedNotice ? 'Copied!' : password }}</div>
         <button (click)="copyButtonClickHandler()">
             <icon-copy></icon-copy>
         </button>
