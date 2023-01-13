@@ -24,4 +24,4 @@ jobs:
                       npm i
                       ng build --base-href=/passage/
                       rm -rf /var/projects/bijanprogrammer.com/html/passage
-                      cp -a dist/projects-passage/. /var/projects/bijanprogrammer.com/html/passage
+                      cp -a dist/projects/. /var/projects/bijanprogrammer.com/html/passage
