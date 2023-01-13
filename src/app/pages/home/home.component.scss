@@ -1,0 +1,168 @@
+.wrapper {
+    --spacing: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+
+    .box {
+        background-color: var(--color-box-background);
+        box-shadow: var(--box-shadow-subtle);
+
+        padding: var(--spacing);
+
+        &--password {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing);
+
+            cursor: pointer;
+
+            .password {
+                color: var(--color-password-idle);
+
+                font-size: 2.4rem;
+                font-weight: 700;
+            }
+
+            button {
+                color: var(--color-primary);
+
+                font-size: 2.4rem;
+            }
+
+            &:hover {
+                .password {
+                    color: var(--color-password-hover);
+                }
+
+                button {
+                    color: var(--color-default-foreground);
+                }
+            }
+        }
+
+        &--settings {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing);
+
+            .character-length {
+                display: grid;
+                grid-template: "title number" "input input";
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: calc(var(--spacing) * 0.5);
+
+                .title {
+                    grid-area: title;
+                }
+
+                .number {
+                    grid-area: number;
+
+                    color: var(--color-primary);
+
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                }
+
+                input {
+                    grid-area: input;
+                }
+            }
+
+            .checkboxes {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing);
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--spacing);
+
+                    cursor: pointer;
+                }
+            }
+
+            .inner-box {
+                background-color: var(--color-inner-box-background);
+                color: var(--color-inner-box-foreground);
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: var(--spacing);
+
+                padding: var(--spacing);
+
+                .title {
+                    text-transform: uppercase;
+                }
+
+                .strength {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--spacing);
+
+                    .text {
+                        font-weight: 700;
+
+                        text-transform: uppercase;
+                    }
+
+                    .bars {
+                        display: flex;
+                        gap: calc(var(--spacing) * 0.5);
+
+                        .bar {
+                            color: var(--color-default-foreground);
+
+                            border: 0.1rem solid currentcolor;
+
+                            &.filled {
+                                background-color: currentcolor;
+                                color: var(--color);
+                            }
+                        }
+                    }
+                }
+            }
+
+            > button {
+                background-color: var(--color-primary);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: var(--spacing);
+
+                padding: var(--spacing);
+
+                border: 0.2rem solid var(--color-primary);
+
+                font-size: 2rem;
+                font-weight: 700;
+
+                text-transform: uppercase;
+
+                &:not([disabled]) {
+                    &:hover {
+                        background-color: transparent;
+                        color: var(--color-primary);
+                    }
+                }
+
+                &[disabled] {
+                    background-color: var(--color-gray-70);
+
+                    border-color: var(--color-gray-70);
+
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

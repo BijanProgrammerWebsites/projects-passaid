@@ -1,3 +1,79 @@
 <div class="wrapper">
-    <h1>Hello, friend!</h1>
+    <div class="box box--password">
+        <div class="password">{{ password }}</div>
+        <button (click)="copyButtonClickHandler()">
+            <icon-copy></icon-copy>
+        </button>
+    </div>
+
+    <div class="box box--settings">
+        <div class="character-length">
+            <div class="title">Character Length</div>
+            <div class="number">{{ characterLength }}</div>
+            <input
+                type="range"
+                min="1"
+                max="32"
+                [(ngModel)]="characterLength"
+                (ngModelChange)="settingsChangeHandler()"
+            />
+        </div>
+
+        <div class="checkboxes">
+            <label>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="settings.includeLowercaseLetters"
+                    (ngModelChange)="settingsChangeHandler()"
+                />
+                Include Lowercase Letters
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="settings.includeUppercaseLetters"
+                    (ngModelChange)="settingsChangeHandler()"
+                />
+                Include Uppercase Letters
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="settings.includeNumbers"
+                    (ngModelChange)="settingsChangeHandler()"
+                />
+                Include Numbers
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="settings.includeSymbols"
+                    (ngModelChange)="settingsChangeHandler()"
+                />
+                Include Symbols
+            </label>
+        </div>
+
+        <div class="inner-box">
+            <div class="title">Strength</div>
+
+            <div class="strength">
+                <div class="text">{{ strength.text }}</div>
+                <div class="bars" [ngStyle]="{'--color': strength.color}">
+                    <div class="bar" [class.filled]="strength.value >= 1">&nbsp;</div>
+                    <div class="bar" [class.filled]="strength.value >= 2">&nbsp;</div>
+                    <div class="bar" [class.filled]="strength.value >= 3">&nbsp;</div>
+                    <div class="bar" [class.filled]="strength.value >= 4">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+        <button [disabled]="isGenerateButtonDisabled" (click)="generateButtonClickHandler()">
+            Generate
+            <icon-arrow></icon-arrow>
+        </button>
+    </div>
 </div>
