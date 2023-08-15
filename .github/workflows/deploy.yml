@@ -5,20 +5,8 @@ on:
 
 jobs:
     deploy:
-        name: Deploy
-        runs-on: self-hosted
-
-        steps:
-            - uses: actions/checkout@v3
-
-            - name: Install Dependencies
-              run: npm i
-
-            - name: Build
-              run: npm run build -- --base-href=/passage/
-
-            - name: Move Built Files to Corresponding Folder
-              run: |
-                  rm -rf /var/www/projects.bijanprogrammer.com/html/passage
-                  mkdir -p /var/www/projects.bijanprogrammer.com/html/passage
-                  mv dist/passage/* /var/www/projects.bijanprogrammer.com/html/passage
+        uses: BijanProgrammerWebsites/hub/.github/workflows/deploy-angular.yml@master
+        with:
+            host: projects.bijanprogrammer.com
+            base-href: /passage/
+            project-name: passage
