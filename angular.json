@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "passage": {
+        "passaid": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -20,7 +20,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/passage",
+                        "outputPath": "dist/passaid",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -55,10 +55,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "passage:build:production"
+                            "browserTarget": "passaid:build:production"
                         },
                         "development": {
-                            "browserTarget": "passage:build:development"
+                            "browserTarget": "passaid:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -66,7 +66,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "passage:build"
+                        "browserTarget": "passaid:build"
                     }
                 },
                 "test": {

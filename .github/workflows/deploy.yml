@@ -7,6 +7,6 @@ jobs:
     deploy:
         uses: BijanProgrammerWebsites/hub/.github/workflows/deploy-angular.yml@master
         with:
-            host: projects.bijanprogrammer.com
-            base-href: /passage/
-            project-name: passage
+            host: passaid.ir
+            base-href: /
+            project-name: passaid
